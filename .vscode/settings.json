@@ -1,0 +1,9 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "gitlab.repositories": {
+    "c:\\Users\\vaith\\Desktop\\Code\\Appwrite\\tracker-app": {
+      "preferredRemoteName": "origin2"
+    }
+  }
+}
