@@ -4,8 +4,10 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    backgroundImage: {
-      "background-light": "url('/images/bg.jpg')",
+    fontSize: {
+      "10xl": "15rem",
+      "20xl": "2rem",
+      "21xl": "1.5rem",
     },
   },
   plugins: [require("daisyui")],

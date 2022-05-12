@@ -1,7 +1,9 @@
 import sdk from "./../../../appwrite.config";
 
-export default function register({ body: { email, password }, method }, res) {
-  if (method === "POST") {
+export default function login(req, res) {
+  if (req.method === "POST") {
+    const email = req.body.email;
+    const password = req.body.password;
     let promise = sdk.account.createSession(email, password);
 
     promise.then(
