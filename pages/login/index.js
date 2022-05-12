@@ -1,5 +1,5 @@
 import react, { useState } from "react";
-import Link from "next/Link";
+import Link from "next/link";
 import register from "../api/user/register";
 import { History } from "history";
 import { useRouter } from "next/router";

@@ -1,7 +1,7 @@
 import react, { useState } from "react";
 import register from "../api/user/register";
 import { useRouter } from "next/router";
-import Link from "next/Link";
+import Link from "next/link";
 
 export default function Register() {
   const [userDeetz, setuserDeetz] = useState({
