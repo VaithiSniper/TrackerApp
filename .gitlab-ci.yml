@@ -29,7 +29,7 @@ prod_deployment:
     - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "docker rm -f trackerapp || true"
     - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "cd TrackerApp && docker build -t trackerapp . && docker run -p 81:3000 -d --name trackerapp trackerapp"
     - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "sudo rm TrackerApp -r || true"
-    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "docker image prune --all -y"
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "docker system prune -f"
   environment:
     name: production
     url: http://192.168.7.237:8000
