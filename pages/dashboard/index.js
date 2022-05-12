@@ -1,23 +1,35 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Card from "./../../components/card/Card";
 
 function Dashboard() {
-  const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(false);
+  const [userDeetz, setuserDeetz] = useState();
 
+  const router = useRouter();
+
+  const getData = async (e) => {
+    e.preventDefault();
+    const response = await fetch("/api/user/getUser");
+    const data = await response.json();
+    console.log(data);
+  };
   // useEffect(() => {
-  //   setLoading(true);
-  //   fetch("api/data/cardData").then((data) => {
-  //     setData(data);
-  //     setLoading(false);
+  //   async () => {
+  //     const response = await fetch("/api/user/getUser");
+  //     const data = await response.json();
+  //     console.log(data);
+  //   };
+  // }, [userDeetz]);
+
+  // const handleLogout = async (e) => {
+  //   e.preventDefault();
+  //   const response = await fetch("/api/user/deleteSession", {
+  //     method: "DELETE",
   //   });
-  // }, []);
-
-  // if (isLoading) return <p>Loading...</p>;
-  // if (!data) return <p>No profile data</p>;
-
+  //   router.push("/");
+  // };
   const obj = {
     id: 1,
     date: "13/07/2002",
@@ -60,6 +72,13 @@ function Dashboard() {
           <Card data={obj} />
         </div>
       </div>
+      <button
+        onClick={(e) => getData(e)}
+        type="submit"
+        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Logout
+      </button>
     </div>
   );
 }

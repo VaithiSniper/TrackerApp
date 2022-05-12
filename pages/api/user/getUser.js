@@ -1,7 +1,7 @@
 import sdk from "./../../../appwrite.config";
 
-export default function register({ body, method }, res) {
-  if (method === "GET") {
+export default function getUser(req, res) {
+  if (req.method === "GET") {
     let promise = sdk.account.get();
 
     promise.then(
